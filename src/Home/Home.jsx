@@ -13,13 +13,13 @@ const Home = () => {
       <Navbar></Navbar>
       <BreakingNews></BreakingNews>
       <div className="grid grid-cols-4">
-        <div>
+        <div className="">
           <LeftSide></LeftSide>
         </div>
         <div className="col-span-2">
           <NewsBody></NewsBody>
         </div>
-        <div>
+        <div className="">
           <RightSide></RightSide>
         </div>
       </div>
