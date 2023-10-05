@@ -1,10 +1,12 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Navbar from '../Home/Navbar';
 import { AuthContext } from '../Provider/AuthProvider';
 
 const Registration = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, profileUpdate, user } = useContext(AuthContext);
+
+  const navigate = useNavigate();
   const handleRegistration = e => {
     e.preventDefault();
     // console.log(e.currentTarget);
@@ -18,6 +20,14 @@ const Registration = () => {
     createUser(email, password)
       .then(result => {
         console.log(result.user);
+        profileUpdate(name, image)
+          .then(() => {
+            alert('user update successfully');
+            navigate('/');
+          })
+          .catch(error => {
+            alert('something wrong');
+          });
       })
       .then(error => {
         console.log(error);

@@ -18,10 +18,10 @@ const Login = () => {
     console.log(email, password);
     login(email, password)
       .then(result => {
-        console.log(result.user);
+        console.log('login successfully');
         navigate(location?.state ? location.state : '/');
       })
-      .then(error => console.log(error));
+      .then(error => console.log('this user is not exist'));
   };
   return (
     <div>
